@@ -1,0 +1,28 @@
+<div>
+    <div class="container align-text-center">
+        <div class="bg-color font-ranchers-blue">
+            <h1 class="display-4  ">Adivina qué Número estoy pensando</h1>
+            <p class=" fs-2">Juega a Adivinar el número Escondido entre 0 y 100</p>
+        </div>
+        <div>
+            <img class="mg-bottom-3" src="./assets/images/cerebro.png" alt="prueba" width="30%" />
+
+        </div>
+        <form [formGroup]="forma" (ngSubmit)="compararNumeros()" novalidate="novalidate">
+            <div class="form-group row mg-bottom-1">
+                <div class="col-">
+                    <input name="numero" type="number" placeholder="{{placeHolder}}" formControlName="numero" autocomplete="off" class="align-text-center redondeado" />
+                    <div *ngIf="forma.controls['numero'].errors?.required && forma.controls['numero'].touched" class="form-control-feedback bg-danger text-white ">
+                        Debes ingresar un Número.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col ">
+                    <button type="submit" [disabled]="!forma.valid" class="btn btn-primary font-ranchers fs-2"> 
+                            Jugar!
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
